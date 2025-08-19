@@ -1,0 +1,6 @@
+streamlit
+numpy==1.26.4
+pandas
+scikit-learn
+joblib
+gensim==4.3.2
