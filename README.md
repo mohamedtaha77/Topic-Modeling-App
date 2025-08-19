@@ -28,18 +28,18 @@ It discovers hidden themes in news articles using:
 
 ## 📁 Files Included / Expected
 
-| File | Required | Description |
-|------|:-------:|-------------|
-| `app.py` | ✅ | Streamlit UI (this repo) |
-| `requirements.txt` | ✅ | App dependencies (Streamlit, scikit‑learn, gensim, etc.) |
-| `README.md` | ✅ | This file |
-| `tfidf_vectorizer.joblib` | ⚠️ | Fitted TF‑IDF vectorizer (exported from your notebook) |
-| `nmf_model.joblib` | ⚠️ | Trained NMF model (same run as the vectorizer) |
-| `best_lda.model` | ⚠️ | Trained LDA model (gensim) |
-| `dictionary.dict` | ⚠️ | Gensim dictionary used to train LDA |
-| `documents_with_topics.csv` | ⚠️ | Corpus with `text`, `clean_text`, `true_category`, and assigned `topic` (for similarity lookup) |
-| `topic_to_category_nmf.json` | ⚠️ | Mapping: topic → dominant category + purity (exported in notebook) |
-| `model_metrics.json` | ⚠️ | Small JSON with `{NMF: {K, coherence_c_v}, LDA: {K, coherence_c_v}}` for the UI badge |
+| File | Description |
+|------|-------------|
+| `app.py` | Streamlit UI (this repo) |
+| `requirements.txt` | App dependencies (Streamlit, scikit‑learn, gensim, etc.) |
+| `README.md` | This file |
+| `tfidf_vectorizer.joblib` | Fitted TF‑IDF vectorizer (exported from your notebook) |
+| `nmf_model.joblib` | Trained NMF model (same run as the vectorizer) |
+| `best_lda.model` | Trained LDA model (gensim) |
+| `dictionary.dict` | Gensim dictionary used to train LDA |
+| `documents_with_topics.csv` | Corpus with `text`, `clean_text`, `true_category`, and assigned `topic` (for similarity lookup) |
+| `topic_to_category_nmf.json` | Mapping: topic → dominant category + purity (exported in notebook) |
+| `model_metrics.json` | Small JSON with `{NMF: {K, coherence_c_v}, LDA: {K, coherence_c_v}}` for the UI badge |
 
 > Only `app.py` + `requirements.txt` are needed to **run the app**.  
 > The other files are **artifacts exported from the notebook** to enable full functionality (prediction, keywords, similarity, and badges).
@@ -130,39 +130,8 @@ streamlit run app.py
 
 ---
 
-## 🧯 Troubleshooting
-
-- **“Vectorizer is NOT fitted (missing `idf_`)”**  
-  Re‑export `tfidf_vectorizer.joblib` **after** calling `vect.fit_transform(...)` in the notebook.
-
-- **“Vectorizer/NMF dimension mismatch”**  
-  Re‑export **both** `tfidf_vectorizer.joblib` and `nmf_model.joblib` from the **same run** (same vocabulary size).
-
-- **“documents_with_topics.csv not found — similar‑article lookup hidden”**  
-  Export the CSV from the notebook with columns: `text`, `clean_text`, `true_category`, `topic`.
-
-- **LDA shows no keywords**  
-  Ensure `best_lda.model` and `dictionary.dict` come from the **same training**. The app falls back to `get_topic_terms` if `id2word` is missing.
-
-- **Binary incompatibility errors (NumPy/Scikit‑learn)**  
-  Use the pinned versions in `requirements.txt`. If issues persist, create a fresh virtual env and reinstall.
-
----
-
-## 📝 Sample Input (for the text box)
-
-> “With three matches left in the league calendar, the title race tightened again this weekend as the leaders dropped points at home… broadcasters shifted kickoff slots to prime time, and ticket resale prices surged.”
-
----
 
 ## 🔒 License
 
-MIT — feel free to use and adapt with attribution.
-
----
-
-## 🙌 Acknowledgments
-
-- Dataset: BBC News Summary (Kaggle)  
-- Libraries: Streamlit, scikit‑learn, gensim, matplotlib, pandas, numpy
+MIT
 
