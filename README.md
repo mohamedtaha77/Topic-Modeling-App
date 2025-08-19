@@ -67,7 +67,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4) **Place model artifacts** (exported from your notebook) in the project root:
+4) **Place model artifacts** in the project root:
 ```
 tfidf_vectorizer.joblib
 nmf_model.joblib
