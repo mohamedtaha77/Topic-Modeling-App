@@ -339,16 +339,16 @@ with fc1:
     st.markdown("**NMF features**")
     st.write("✅ Confidence")
     st.write("✅ similar-article lookup")
+    st.write("✅ Top-5 topic probabilities")
     st.write(("✅ " if nmf_has_dom else "➖ ") + "Dominant category label")
-    st.write("✅ Top-12 topic probabilities")
     st.write("✅ Key words from dominant category")
 
 with fc2:
     st.markdown("**LDA features**")
     st.write("✅ Confidence")
     st.write("✅ similar-article lookup")
+    st.write("✅ Top-5 topic probabilities")
     st.write(("❌ " if nmf_has_dom else "➖ ") + "Dominant category label")
-    st.write("❌ Top-12 topic probabilities")
     st.write("❌ Key words from dominant category")
     
 
@@ -449,3 +449,4 @@ if st.button("Predict") and text.strip():
 
 # Footer
 st.markdown("<div style='text-align: center;'>Made with ❤️ for Elevvo Internship Task 5</div>", unsafe_allow_html=True)
+
