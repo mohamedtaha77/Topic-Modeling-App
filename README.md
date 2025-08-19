@@ -33,12 +33,12 @@ It discovers hidden themes in news articles using:
 | `app.py` | Streamlit UI (this repo) |
 | `requirements.txt` | App dependencies (Streamlit, scikit‑learn, gensim, etc.) |
 | `README.md` | This file |
-| `tfidf_vectorizer.joblib` | Fitted TF‑IDF vectorizer (exported from your notebook) |
-| `nmf_model.joblib` | Trained NMF model (same run as the vectorizer) |
+| `tfidf_vectorizer.joblib` | Fitted TF‑IDF vectorizer |
+| `nmf_model.joblib` | Trained NMF model |
 | `best_lda.model` | Trained LDA model (gensim) |
 | `dictionary.dict` | Gensim dictionary used to train LDA |
 | `documents_with_topics.csv` | Corpus with `text`, `clean_text`, `true_category`, and assigned `topic` (for similarity lookup) |
-| `topic_to_category_nmf.json` | Mapping: topic → dominant category + purity (exported in notebook) |
+| `topic_to_category_nmf.json` | Mapping: topic → dominant category + purity  |
 | `model_metrics.json` | Small JSON with `{NMF: {K, coherence_c_v}, LDA: {K, coherence_c_v}}` for the UI badge |
 
 > Only `app.py` + `requirements.txt` are needed to **run the app**.  
